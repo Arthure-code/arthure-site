@@ -60,6 +60,15 @@ export default function Footer() {
               {contact.githubHandle}
             </a>
             {" · "}
+            <a
+              className="link-secondary text-decoration-none"
+              href={contact.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn
+            </a>
+            {" · "}
             <a className="link-secondary text-decoration-none" href={`mailto:${contact.email}`}>
               {contact.email}
             </a>

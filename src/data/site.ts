@@ -33,6 +33,13 @@ export const contact = {
   email: "arthure.dev.apps@gmail.com",
   github: "https://github.com/Arthure-code",
   githubHandle: "Arthure-code",
+  linkedin: "https://www.linkedin.com/in/arthure-lekoubou-327b45317/",
+  /** Nom affiché du profil : l'adresse porte un suffixe généré, illisible. */
+  linkedinName: "Arthure Lekoubou Djune",
+  /** Format international, seul accepté par les liens `tel:`. */
+  phone: "+14185619020",
+  /** Découpage lisible, pour l'affichage uniquement. */
+  phoneDisplay: "+1 418 561-9020",
 } as const
 
 /**

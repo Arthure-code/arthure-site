@@ -6,6 +6,8 @@ export default function Contact() {
 
   const items = [
     { label: t("email"), value: contact.email, href: `mailto:${contact.email}` },
+    { label: t("phone"), value: contact.phoneDisplay, href: `tel:${contact.phone}` },
+    { label: t("linkedin"), value: contact.linkedinName, href: contact.linkedin },
     { label: t("github"), value: contact.githubHandle, href: contact.github },
     { label: t("location"), value: t("locationValue"), href: null },
   ]
@@ -16,7 +18,10 @@ export default function Contact() {
         <h2 className="section-title h1 mb-2">{t("sectionTitle")}</h2>
         <p className="section-lead mb-5">{t("sectionLead")}</p>
 
-        <div className="row g-4">
+        {/* Cinq cartes dans une grille de trois : la dernière rangée est
+            incomplète, on la centre pour qu'elle paraisse voulue plutôt
+            que tronquée. */}
+        <div className="row g-4 justify-content-center">
           {items.map(item => (
             <div key={item.label} className="col-md-4">
               <div className="ald-card h-100 p-4">
