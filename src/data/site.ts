@@ -5,6 +5,18 @@
  * Les textes traduisibles vivent dans messages/fr.json et messages/en.json.
  */
 
+/**
+ * Adresse publique du site, sans barre oblique finale.
+ *
+ * Elle sert de base aux adresses canoniques, au plan du site et aux données
+ * structurées, qui exigent toutes des adresses absolues. Passer un jour à un
+ * nom de domaine personnel se fera en déclarant NEXT_PUBLIC_SITE_URL chez
+ * l'hébergeur, sans toucher au code.
+ */
+export const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://arthure-site.vercel.app"
+).replace(/\/+$/, "")
+
 /** Base du CDN Devicon : logos officiels des technologies, licence MIT. */
 const DEVICON = "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons"
 

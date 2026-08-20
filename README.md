@@ -74,6 +74,23 @@ les fichiers déposés à la main demandent cette attention.
 Les singletons n'ont pas d'identifiant, leurs fichiers restent donc à la
 racine du dossier déclaré — `public/cv/` pour le curriculum vitae.
 
+## Référencement
+
+Le plan du site et les directives d'exploration sont générés par Next.js
+(`src/app/sitemap.ts` et `src/app/robots.ts`). Les six versions
+linguistiques y sont déclarées avec leurs correspondances `hreflang`, plus
+un `x-default` qui désigne la version servie aux visiteurs dont la langue
+n'est pas offerte.
+
+Chaque page porte des données structurées `Person` construites depuis les
+données réelles du site : coordonnées, technologies de la section
+Compétences, certifications avec leur lien de vérification. Rien n'y est
+saisi en double, donc rien ne peut diverger de ce que lit un visiteur.
+
+Toutes ces adresses sont absolues et dérivent de `siteUrl`, dans
+`src/data/site.ts`. Passer à un nom de domaine personnel se fait en
+déclarant `NEXT_PUBLIC_SITE_URL` chez l'hébergeur, sans toucher au code.
+
 ## Structure
 
 | Dossier | Contenu |

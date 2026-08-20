@@ -5,6 +5,7 @@ import type { Metadata } from "next"
 import type { ReactNode } from "react"
 import Footer from "@/components/Footer"
 import Navbar from "@/components/Navbar"
+import { siteUrl } from "@/data/site"
 import { locales, routing, type Locale } from "@/i18n/routing"
 import { chargerBadges } from "@/lib/badges"
 import "../globals.css"
@@ -36,13 +37,21 @@ export async function generateMetadata({
   const t = await getTranslations({ locale: locale as Locale, namespace: "meta" })
 
   return {
+    // Sans cette base, Next resout les adresses relatives ci-dessous
+    // contre localhost : les canoniques publiees seraient inutilisables.
+    metadataBase: new URL(siteUrl),
     title: t("title"),
     description: t("description"),
     alternates: {
       canonical: `/${locale}`,
       // Une entrée par langue offerte, générée depuis la liste unique
       // de routing.ts : ajouter une langue suffit à mettre à jour le SEO.
-      languages: Object.fromEntries(locales.map(l => [l, `/${l}`])),
+      // `x-default` designe la version servie aux visiteurs dont la langue
+      // n'est pas offerte, faute de quoi un moteur choisit au hasard.
+      languages: {
+        ...Object.fromEntries(locales.map(l => [l, `/${l}`])),
+        "x-default": `/${routing.defaultLocale}`,
+      },
     },
     openGraph: {
       type: "website",
