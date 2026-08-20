@@ -58,7 +58,7 @@ export default config({
    * build aboutit toujours, ce qui garde le projet clonable sans réglage.
    */
   storage:
-    process.env.KEYSTATIC_STORAGE === "github"
+    process.env.NEXT_PUBLIC_KEYSTATIC_STORAGE === "github"
       ? {
           kind: "github",
           repo: { owner: "Arthure-code", name: "arthure-site" },

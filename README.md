@@ -35,13 +35,13 @@ le site. Les identifiants correspondants sont fournis par l'assistant de
 Keystatic, qui n'est accessible qu'en mode `github` :
 
 ```bash
-KEYSTATIC_STORAGE=github npm run dev
+NEXT_PUBLIC_KEYSTATIC_STORAGE=github npm run dev
 ```
 
 L'assistant écrit alors dans `.env` les variables `KEYSTATIC_GITHUB_CLIENT_ID`,
 `KEYSTATIC_GITHUB_CLIENT_SECRET`, `KEYSTATIC_SECRET` et
 `NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG`. Ce fichier n'est pas versionné : les
-mêmes valeurs, accompagnées de `KEYSTATIC_STORAGE=github`, doivent être
+mêmes valeurs, accompagnées de `NEXT_PUBLIC_KEYSTATIC_STORAGE=github`, doivent être
 déclarées dans l'hébergeur.
 
 ## Structure

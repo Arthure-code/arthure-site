@@ -6,6 +6,13 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts")
 const nextConfig: NextConfig = {
   reactStrictMode: true,
 
+  /**
+   * Le navigateur intégré résout localhost en 127.0.0.1 ; sans cette liste,
+   * le serveur de développement refuse ses requêtes d'actifs avec un 403.
+   * N'a aucun effet sur le site déployé.
+   */
+  allowedDevOrigins: ["127.0.0.1", "localhost"],
+
   images: {
     /**
      * Logos officiels des technologies, servis par le CDN public de Devicon
