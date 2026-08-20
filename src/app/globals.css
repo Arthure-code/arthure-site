@@ -378,3 +378,32 @@ body {
     transition: none;
   }
 }
+
+/* ---------- Logos cliquables de la section Contact ---------- */
+
+/* Le logo remplace le texte du lien : il doit donc réagir au survol
+   comme réagirait ce texte, sinon rien ne signale qu'il est cliquable.
+   Le léger gris au repos évite qu'un logo très coloré n'attire l'oeil
+   plus que le reste de la carte. */
+.contact-logo {
+  filter: grayscale(35%);
+  opacity: 0.9;
+  transition: filter 0.15s ease, opacity 0.15s ease, transform 0.15s ease;
+}
+
+.contact-logo:hover,
+.contact-logo:focus-visible {
+  filter: none;
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-logo {
+    transition: none;
+  }
+  .contact-logo:hover,
+  .contact-logo:focus-visible {
+    transform: none;
+  }
+}
