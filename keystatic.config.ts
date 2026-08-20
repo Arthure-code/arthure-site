@@ -1,4 +1,4 @@
-import { collection, config, fields } from "@keystatic/core"
+import { collection, config, fields, singleton } from "@keystatic/core"
 
 /**
  * Configuration de l'interface d'administration, accessible à /keystatic.
@@ -193,6 +193,99 @@ export default config({
             itemLabel: props => props.fields.legendeFr.value || "Capture",
           }
         ),
+      },
+    }),
+
+    certifications: collection({
+      label: "Certifications",
+      slugField: "code",
+      path: "content/certifications/*",
+      format: { data: "json" },
+
+      columns: ["code", "emetteur", "annee"],
+
+      schema: {
+        code: fields.slug({
+          name: {
+            label: "Code",
+            description: "Affiché en gras sur la carte. Par exemple AZ-900.",
+            validation: { isRequired: true },
+          },
+        }),
+
+        nom: fields.text({
+          label: "Intitulé complet",
+          description:
+            "Nom officiel, identique dans toutes les langues. Par exemple : Microsoft Certified: Azure Fundamentals.",
+          validation: { isRequired: true },
+        }),
+
+        emetteur: fields.text({
+          label: "Délivrée par",
+          description: "Par exemple Microsoft, Postman, AWS.",
+          validation: { isRequired: true },
+        }),
+
+        annee: fields.text({
+          label: "Année d'obtention",
+          validation: { isRequired: true },
+        }),
+
+        badge: fields.image({
+          label: "Badge",
+          description:
+            "Image officielle du certificateur. PNG ou SVG, de préférence carrée.",
+          directory: "public/certifications",
+          publicPath: "/certifications/",
+          validation: { isRequired: true },
+        }),
+
+        lienVerification: fields.url({
+          label: "Lien de vérification",
+          description:
+            "Page officielle qui atteste la certification. Le visiteur y est envoyé au clic.",
+          validation: { isRequired: true },
+        }),
+
+        ordre: fields.integer({
+          label: "Ordre d'affichage",
+          description: "Les plus petits nombres apparaissent en premier.",
+          defaultValue: 100,
+        }),
+
+        publie: fields.checkbox({
+          label: "Afficher sur le site",
+          defaultValue: true,
+        }),
+      },
+    }),
+  },
+
+  singletons: {
+    /**
+     * Réglages qui n'existent qu'en un seul exemplaire, et ne justifient
+     * donc pas une collection : ils s'éditent comme un formulaire unique.
+     */
+    documents: singleton({
+      label: "Curriculum vitae",
+      path: "content/documents",
+      format: { data: "json" },
+
+      schema: {
+        cv: fields.file({
+          label: "Fichier",
+          description:
+            "PDF proposé au téléchargement depuis la page d'accueil. Vider ce champ retire le bouton du site.",
+          directory: "public/cv",
+          publicPath: "/cv/",
+        }),
+
+        cvNomFichier: fields.text({
+          label: "Nom du fichier téléchargé",
+          description:
+            "Nom sous lequel le visiteur reçoit le document, quel que soit celui du fichier envoyé.",
+          defaultValue: "Arthure-Lekoubou-Djune-CV.pdf",
+        }),
       },
     }),
   },

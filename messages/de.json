@@ -20,7 +20,7 @@
     "intro2": "Meine Ausbildung in sicherer Anwendungsentwicklung führt dazu, dass ich Sicherheit als Entwurfsbedingung behandle: minimale Berechtigungen, kontrollierte App-übergreifende Freigabe und statische Analyse bei jedem Commit.",
     "ctaProjects": "Projekte ansehen",
     "ctaContact": "Kontakt aufnehmen",
-    "availability": "Auf der Suche nach einem Praktikum oder einer ersten Stelle"
+    "downloadCv": "Lebenslauf herunterladen"
   },
   "projects": {
     "sectionTitle": "Projekte",
@@ -49,12 +49,7 @@
   "certifications": {
     "sectionTitle": "Zertifizierungen",
     "sectionLead": "Jede Zertifizierung verweist auf ihre offizielle Überprüfungsseite.",
-    "verify": "Überprüfen",
-    "issuedBy": "Ausgestellt von",
-    "az900": "Microsoft Certified: Azure Fundamentals",
-    "dp900": "Microsoft Certified: Azure Data Fundamentals",
-    "sc900": "Microsoft Certified: Security, Compliance and Identity Fundamentals",
-    "postman": "Postman API Fundamentals Student Expert"
+    "verify": "Überprüfen"
   },
   "contact": {
     "sectionTitle": "Kontakt",

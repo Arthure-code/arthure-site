@@ -20,7 +20,7 @@
     "intro2": "My training in secure application development leads me to treat security as a design constraint: minimal permissions, controlled inter-app sharing, static analysis on every commit.",
     "ctaProjects": "View projects",
     "ctaContact": "Get in touch",
-    "availability": "Looking for an internship or a first position"
+    "downloadCv": "Download my CV"
   },
   "projects": {
     "sectionTitle": "Projects",
@@ -49,12 +49,7 @@
   "certifications": {
     "sectionTitle": "Certifications",
     "sectionLead": "Each certification links to its official verification page.",
-    "verify": "Verify",
-    "issuedBy": "Issued by",
-    "az900": "Microsoft Certified: Azure Fundamentals",
-    "dp900": "Microsoft Certified: Azure Data Fundamentals",
-    "sc900": "Microsoft Certified: Security, Compliance and Identity Fundamentals",
-    "postman": "Postman API Fundamentals Student Expert"
+    "verify": "Verify"
   },
   "contact": {
     "sectionTitle": "Get in touch",

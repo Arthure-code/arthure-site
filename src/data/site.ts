@@ -1,6 +1,7 @@
 /**
  * Source unique de vérité pour tout ce qui ne dépend pas de la langue :
- * liens, identifiants, technologies, certifications.
+ * liens, identifiants et technologies. Les projets, certifications et
+ * documents sont administrés depuis /keystatic et vivent dans content/.
  * Les textes traduisibles vivent dans messages/fr.json et messages/en.json.
  */
 
@@ -112,59 +113,5 @@ export const skillGroups: Array<{ titleKey: SkillGroupKey; items: Tech[] }> = [
       { label: "GitHub", icon: "github" },
       { label: "Docker", icon: "docker" },
     ],
-  },
-]
-
-export interface Certification {
-  /** Clé de traduction dans messages/*.json, section "certifications" */
-  key: "az900" | "dp900" | "sc900" | "postman"
-  code: string
-  issuer: string
-  year: string
-  verifyUrl: string
-  /**
-   * Badge officiel, servi depuis /public.
-   * - Microsoft : badge « Certified Fundamentals » téléchargé depuis
-   *   learn.microsoft.com, commun aux trois certifications de ce niveau.
-   * - Postman : badge extrait du certificat officiel délivré par Postman.
-   */
-  badge: string
-}
-
-export const certifications: Certification[] = [
-  {
-    key: "az900",
-    code: "AZ-900",
-    issuer: "Microsoft",
-    year: "2025",
-    verifyUrl:
-      "https://learn.microsoft.com/api/credentials/share/en-us/ArthureLekoubouDjune-8715/D964FAAB05A10DC1?sharingId=8CB681DDB7D6D21B",
-    badge: "/certifications/microsoft-fundamentals.svg",
-  },
-  {
-    key: "dp900",
-    code: "DP-900",
-    issuer: "Microsoft",
-    year: "2025",
-    verifyUrl:
-      "https://learn.microsoft.com/api/credentials/share/en-us/ArthureLekoubouDjune-8715/E4AC4A613D4580CE?sharingId=8CB681DDB7D6D21B",
-    badge: "/certifications/microsoft-fundamentals.svg",
-  },
-  {
-    key: "sc900",
-    code: "SC-900",
-    issuer: "Microsoft",
-    year: "2026",
-    verifyUrl:
-      "https://learn.microsoft.com/api/credentials/share/en-us/ArthureLekoubouDjune-8715/DE0369446386FD76?sharingId=8CB681DDB7D6D21B",
-    badge: "/certifications/microsoft-fundamentals.svg",
-  },
-  {
-    key: "postman",
-    code: "Postman",
-    issuer: "Postman",
-    year: "2025",
-    verifyUrl: "https://badgr.com/public/assertions/w9MS5SSNRHuzSyO49RwF9Q",
-    badge: "/certifications/postman-student-expert.png",
   },
 ]

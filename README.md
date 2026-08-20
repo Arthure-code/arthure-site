@@ -59,6 +59,21 @@ n'est pas `httpOnly` et reste donc modifiable depuis le navigateur.
 La liste par défaut ne contient que le propriétaire du dépôt. Pour l'élargir,
 déclarer `KEYSTATIC_ADMINS` avec les comptes séparés par des virgules.
 
+## Fichiers joints
+
+Keystatic range les fichiers d'une fiche dans un sous-dossier portant son
+identifiant, et non directement dans le dossier déclaré. Le badge de la
+certification `az-900` vit donc dans `public/certifications/az-900/`, et les
+captures du projet `lkbconvertor` dans `public/projects/captures/lkbconvertor/`.
+
+Ce détail n'est pas cosmétique : un fichier placé ailleurs s'ouvre comme un
+champ vide dans l'administration, alors que le site l'affiche correctement.
+Ajouter une fiche par le formulaire respecte la convention d'office ; seuls
+les fichiers déposés à la main demandent cette attention.
+
+Les singletons n'ont pas d'identifiant, leurs fichiers restent donc à la
+racine du dossier déclaré — `public/cv/` pour le curriculum vitae.
+
 ## Structure
 
 | Dossier | Contenu |
@@ -67,7 +82,9 @@ déclarer `KEYSTATIC_ADMINS` avec les comptes séparés par des virgules.
 | `messages/` | Textes de l'interface, un fichier par langue |
 | `src/app/[locale]/` | Pages, préfixées par la langue |
 | `src/components/` | Composants d'affichage |
-| `src/data/site.ts` | Coordonnées, compétences, certifications |
+| `content/certifications/` | Une fiche JSON par certification |
+| `content/documents.json` | Curriculum vitae proposé au téléchargement |
+| `src/data/site.ts` | Coordonnées et compétences |
 | `src/i18n/` | Liste des langues et navigation traduite |
 | `src/lib/projects.ts` | Lecture des projets à la construction |
 | `keystatic.config.ts` | Schéma du formulaire d'administration |

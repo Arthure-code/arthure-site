@@ -20,7 +20,7 @@
     "intro2": "La mia formazione in sviluppo di applicazioni sicure mi porta a trattare la sicurezza come un vincolo di progettazione: permessi minimi, condivisione tra applicazioni controllata e analisi statica a ogni commit.",
     "ctaProjects": "Vedi i progetti",
     "ctaContact": "Contattami",
-    "availability": "In cerca di tirocinio o primo impiego"
+    "downloadCv": "Scarica il mio CV"
   },
   "projects": {
     "sectionTitle": "Progetti",
@@ -49,12 +49,7 @@
   "certifications": {
     "sectionTitle": "Certificazioni",
     "sectionLead": "Ogni certificazione rimanda alla propria pagina ufficiale di verifica.",
-    "verify": "Verifica",
-    "issuedBy": "Rilasciata da",
-    "az900": "Microsoft Certified: Azure Fundamentals",
-    "dp900": "Microsoft Certified: Azure Data Fundamentals",
-    "sc900": "Microsoft Certified: Security, Compliance and Identity Fundamentals",
-    "postman": "Postman API Fundamentals Student Expert"
+    "verify": "Verifica"
   },
   "contact": {
     "sectionTitle": "Contatti",

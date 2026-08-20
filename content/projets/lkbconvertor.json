@@ -51,27 +51,27 @@
   ],
   "captures": [
     {
-      "image": "/projects/lkbconvertor/home.png",
+      "image": "/projects/captures/lkbconvertor/home.png",
       "legendeFr": "Écran d'accueil : les huit conversions offertes",
       "legendeEn": "Home screen: the eight available conversions"
     },
     {
-      "image": "/projects/lkbconvertor/conversion-empty.png",
+      "image": "/projects/captures/lkbconvertor/conversion-empty.png",
       "legendeFr": "Sélection du fichier à convertir",
       "legendeEn": "Choosing the file to convert"
     },
     {
-      "image": "/projects/lkbconvertor/load.png",
+      "image": "/projects/captures/lkbconvertor/load.png",
       "legendeFr": "Conversion en cours",
       "legendeEn": "Conversion in progress"
     },
     {
-      "image": "/projects/lkbconvertor/conversion-success.png",
+      "image": "/projects/captures/lkbconvertor/conversion-success.png",
       "legendeFr": "Conversion réussie : ouvrir ou partager le résultat",
       "legendeEn": "Conversion complete: open or share the result"
     },
     {
-      "image": "/projects/lkbconvertor/historique-menu.png",
+      "image": "/projects/captures/lkbconvertor/historique-menu.png",
       "legendeFr": "Historique local et actions sur un fichier converti",
       "legendeEn": "Local history and actions on a converted file"
     }

@@ -1,7 +1,8 @@
 import { useTranslations } from "next-intl"
 import { contact } from "@/data/site"
+import type { Cv } from "@/lib/documents"
 
-export default function Hero() {
+export default function Hero({ cv }: { cv: Cv | null }) {
   const t = useTranslations("hero")
 
   return (
@@ -27,9 +28,20 @@ export default function Hero() {
               <a href={`mailto:${contact.email}`} className="btn btn-outline-secondary px-4">
                 {t("ctaContact")}
               </a>
-              <span className="badge rounded-pill text-bg-light border ms-sm-2">
-                {t("availability")}
-              </span>
+              {/* Le bouton n'existe que si un document a été déposé dans
+                  l'administration : le retirer là-bas le fait disparaître
+                  ici, sans laisser d'adresse morte.
+                  `download` propose l'enregistrement plutôt que l'ouverture
+                  dans le navigateur, et impose le nom du fichier reçu. */}
+              {cv && (
+                <a
+                  href={cv.url}
+                  download={cv.nomFichier}
+                  className="btn btn-outline-secondary px-4"
+                >
+                  {t("downloadCv")}
+                </a>
+              )}
             </div>
           </div>
         </div>

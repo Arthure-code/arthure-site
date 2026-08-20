@@ -20,7 +20,7 @@
     "intro2": "Mi formación en desarrollo de aplicaciones seguras me lleva a tratar la seguridad como una restricción de diseño: permisos mínimos, uso compartido entre aplicaciones controlado y análisis estático en cada confirmación.",
     "ctaProjects": "Ver proyectos",
     "ctaContact": "Contactarme",
-    "availability": "Buscando prácticas o primer empleo"
+    "downloadCv": "Descargar mi CV"
   },
   "projects": {
     "sectionTitle": "Proyectos",
@@ -49,12 +49,7 @@
   "certifications": {
     "sectionTitle": "Certificaciones",
     "sectionLead": "Cada certificación enlaza con su página oficial de verificación.",
-    "verify": "Verificar",
-    "issuedBy": "Emitida por",
-    "az900": "Microsoft Certified: Azure Fundamentals",
-    "dp900": "Microsoft Certified: Azure Data Fundamentals",
-    "sc900": "Microsoft Certified: Security, Compliance and Identity Fundamentals",
-    "postman": "Postman API Fundamentals Student Expert"
+    "verify": "Verificar"
   },
   "contact": {
     "sectionTitle": "Contacto",

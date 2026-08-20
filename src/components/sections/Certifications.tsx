@@ -1,9 +1,17 @@
 import { useTranslations } from "next-intl"
 import Image from "next/image"
-import { certifications } from "@/data/site"
+import type { CertificationAffichee } from "@/lib/certifications"
 
-export default function Certifications() {
+export default function Certifications({
+  certifications,
+}: {
+  certifications: CertificationAffichee[]
+}) {
   const t = useTranslations("certifications")
+
+  // Aucune certification saisie : la section entière disparaît, plutôt
+  // qu'un titre suivi du vide.
+  if (certifications.length === 0) return null
 
   return (
     <section id="certifications" className="section section--alt">
@@ -13,9 +21,9 @@ export default function Certifications() {
 
         <div className="row g-4 justify-content-center">
           {certifications.map(cert => (
-            <div key={cert.key} className="col-6 col-lg-3">
+            <div key={cert.code} className="col-6 col-lg-3">
               <a
-                href={cert.verifyUrl}
+                href={cert.lienVerification}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="ald-card d-flex flex-column align-items-center text-center h-100 p-4 text-decoration-none"
@@ -39,11 +47,11 @@ export default function Certifications() {
                   className="small mb-2 flex-grow-1"
                   style={{ color: "var(--ald-ink)", lineHeight: 1.35 }}
                 >
-                  {t(cert.key)}
+                  {cert.nom}
                 </span>
 
                 <span className="small text-muted-ald mb-3">
-                  {cert.issuer} · {cert.year}
+                  {cert.emetteur} · {cert.annee}
                 </span>
 
                 <span className="small fw-semibold mt-auto" style={{ color: "var(--ald-accent)" }}>
