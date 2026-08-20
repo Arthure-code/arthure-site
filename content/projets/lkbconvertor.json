@@ -1,0 +1,79 @@
+{
+  "titre": "LKBConvertor",
+  "annee": "2026",
+  "ordre": 10,
+  "publie": true,
+  "fr": {
+    "accroche": "Convertisseur de documents Android, entièrement hors ligne",
+    "description": "Application Android qui convertit des documents entre huit formats sans jamais envoyer le fichier sur un serveur. Le traitement se fait intégralement sur l'appareil, ce qui convient aux documents sensibles.",
+    "points": [
+      "Huit conversions : Word, PDF, RTF, Excel, PowerPoint et images",
+      "Visionneuse intégrée qui ouvre tous ces formats",
+      "Historique local en SQLite avec partage vers toute application Android",
+      "Portail qualité SonarCloud au vert : 0 bogue, 0 vulnérabilité, 0 duplication"
+    ],
+    "note": ""
+  },
+  "en": {
+    "accroche": "Fully offline Android document converter",
+    "description": "An Android app that converts documents between eight formats without ever uploading a file to a server. Everything is processed on the device, which suits sensitive documents.",
+    "points": [
+      "Eight conversions: Word, PDF, RTF, Excel, PowerPoint and images",
+      "Built-in viewer that opens every one of those formats",
+      "Local SQLite history with sharing to any Android app",
+      "SonarCloud quality gate passing: 0 bugs, 0 vulnerabilities, 0 duplication"
+    ],
+    "note": ""
+  },
+  "depot": "https://github.com/Arthure-code/LKBConvertor",
+  "sonarProject": "Arthure-code_LKBConvertor",
+  "technologies": [
+    {
+      "nom": ".NET 9 MAUI",
+      "logo": "dotnetcore"
+    },
+    {
+      "nom": "C#",
+      "logo": "csharp"
+    },
+    {
+      "nom": "Android",
+      "logo": "android"
+    },
+    {
+      "nom": "SQLite",
+      "logo": "sqlite"
+    },
+    {
+      "nom": "Azure DevOps",
+      "logo": "azuredevops"
+    }
+  ],
+  "captures": [
+    {
+      "image": "/projects/lkbconvertor/home.png",
+      "legendeFr": "Écran d'accueil : les huit conversions offertes",
+      "legendeEn": "Home screen: the eight available conversions"
+    },
+    {
+      "image": "/projects/lkbconvertor/conversion-empty.png",
+      "legendeFr": "Sélection du fichier à convertir",
+      "legendeEn": "Choosing the file to convert"
+    },
+    {
+      "image": "/projects/lkbconvertor/load.png",
+      "legendeFr": "Conversion en cours",
+      "legendeEn": "Conversion in progress"
+    },
+    {
+      "image": "/projects/lkbconvertor/conversion-success.png",
+      "legendeFr": "Conversion réussie : ouvrir ou partager le résultat",
+      "legendeEn": "Conversion complete: open or share the result"
+    },
+    {
+      "image": "/projects/lkbconvertor/historique-menu.png",
+      "legendeFr": "Historique local et actions sur un fichier converti",
+      "legendeEn": "Local history and actions on a converted file"
+    }
+  ]
+}

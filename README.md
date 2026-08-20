@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Arthure Lekoubou Djune
 
-## Getting Started
+Site personnel multilingue, construit avec Next.js et Bootstrap.
 
-First, run the development server:
+## Fonctionnement
+
+Six langues sont proposées : français, anglais, espagnol, portugais, allemand
+et italien. La langue est déduite de l'en-tête `Accept-Language` du navigateur
+lors de la première visite, puis reste modifiable depuis la barre de navigation.
+L'adresse porte toujours le préfixe de langue, par exemple `/fr` ou `/en`.
+
+Les projets ne sont pas écrits dans le code : chaque projet est un fichier JSON
+dans `content/projets/`, modifiable par formulaire à l'adresse `/keystatic`.
+Le site les lit au moment de la construction, les pages restent donc statiques.
+
+## Développement
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Le site répond sur `http://localhost:3000`, l'administration sur
+`http://localhost:3000/keystatic`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Administration des projets
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Sans réglage particulier, l'administration écrit directement dans les fichiers
+du dossier de travail : pratique en local, mais indisponible une fois le site
+déployé.
 
-## Learn More
+Pour pouvoir modifier les projets en ligne, une application GitHub sert de
+passerelle : chaque enregistrement devient un commit, et l'hébergeur reconstruit
+le site. Les identifiants correspondants sont fournis par l'assistant de
+Keystatic, qui n'est accessible qu'en mode `github` :
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+KEYSTATIC_STORAGE=github npm run dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+L'assistant écrit alors dans `.env` les variables `KEYSTATIC_GITHUB_CLIENT_ID`,
+`KEYSTATIC_GITHUB_CLIENT_SECRET`, `KEYSTATIC_SECRET` et
+`NEXT_PUBLIC_KEYSTATIC_GITHUB_APP_SLUG`. Ce fichier n'est pas versionné : les
+mêmes valeurs, accompagnées de `KEYSTATIC_STORAGE=github`, doivent être
+déclarées dans l'hébergeur.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Structure
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Dossier | Contenu |
+| --- | --- |
+| `content/projets/` | Un fichier JSON par projet |
+| `messages/` | Textes de l'interface, un fichier par langue |
+| `src/app/[locale]/` | Pages, préfixées par la langue |
+| `src/components/` | Composants d'affichage |
+| `src/data/site.ts` | Coordonnées, compétences, certifications |
+| `src/i18n/` | Liste des langues et navigation traduite |
+| `src/lib/projects.ts` | Lecture des projets à la construction |
+| `keystatic.config.ts` | Schéma du formulaire d'administration |

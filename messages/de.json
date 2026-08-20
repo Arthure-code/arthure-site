@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "title": "Arthure Lekoubou Djune — .NET-MAUI-Entwickler für mobile Anwendungen",
+    "description": "Entwickler mobiler Anwendungen in Québec, spezialisiert auf .NET MAUI und natives Android. Plattformübergreifende Apps, Anwendungssicherheit und CI/CD-Pipelines. Microsoft-zertifiziert AZ-900, DP-900 und SC-900."
+  },
+  "nav": {
+    "home": "Startseite",
+    "projects": "Projekte",
+    "skills": "Kenntnisse",
+    "certifications": "Zertifizierungen",
+    "contact": "Kontakt",
+    "toggleMenu": "Menü öffnen",
+    "language": "Sprache"
+  },
+  "hero": {
+    "name": "Arthure Lekoubou Djune",
+    "role": ".NET-MAUI-Entwickler",
+    "location": "Québec, Kanada",
+    "intro": "Ich entwickle plattformübergreifende mobile Anwendungen mit .NET MAUI und nativem Android — vom Prototyp bis zur Veröffentlichung bei Google Play.",
+    "intro2": "Meine Ausbildung in sicherer Anwendungsentwicklung führt dazu, dass ich Sicherheit als Entwurfsbedingung behandle: minimale Berechtigungen, kontrollierte App-übergreifende Freigabe und statische Analyse bei jedem Commit.",
+    "ctaProjects": "Projekte ansehen",
+    "ctaContact": "Kontakt aufnehmen",
+    "availability": "Auf der Suche nach einem Praktikum oder einer ersten Stelle"
+  },
+  "projects": {
+    "sectionTitle": "Projekte",
+    "sectionLead": "Zwei persönliche Projekte, öffentlich und überprüfbar. Quellcode, Qualitätsanalysen und Commit-Verlauf sind auf GitHub einsehbar.",
+    "viewCode": "Code ansehen",
+    "viewAnalysis": "SonarCloud-Analyse",
+    "stack": "Technologien",
+    "highlights": "Höhepunkte",
+    "gallery": "Bildschirmfotos",
+    "openGallery": "Bildschirmfotos öffnen",
+    "previous": "Vorheriges Bild",
+    "next": "Nächstes Bild",
+    "close": "Schließen",
+    "counter": "{current} von {total}"
+  },
+  "skills": {
+    "sectionTitle": "Technische Kenntnisse",
+    "sectionLead": "Technologien, die ich in meinen Projekten oder während meiner Ausbildung eingesetzt habe.",
+    "mobile": "Mobil",
+    "backend": "Back-End und APIs",
+    "frontend": "Front-End",
+    "data": "Datenbanken",
+    "security": "Anwendungssicherheit",
+    "devops": "DevOps und Qualität"
+  },
+  "certifications": {
+    "sectionTitle": "Zertifizierungen",
+    "sectionLead": "Jede Zertifizierung verweist auf ihre offizielle Überprüfungsseite.",
+    "verify": "Überprüfen",
+    "issuedBy": "Ausgestellt von",
+    "az900": "Microsoft Certified: Azure Fundamentals",
+    "dp900": "Microsoft Certified: Azure Data Fundamentals",
+    "sc900": "Microsoft Certified: Security, Compliance and Identity Fundamentals",
+    "postman": "Postman API Fundamentals Student Expert"
+  },
+  "contact": {
+    "sectionTitle": "Kontakt",
+    "sectionLead": "Offen für Praktikums- und Einstiegsangebote im Raum Québec.",
+    "email": "E-Mail",
+    "github": "GitHub",
+    "location": "Standort",
+    "locationValue": "Québec, Kanada"
+  },
+  "footer": {
+    "rights": "Alle Rechte vorbehalten.",
+    "builtWith": "Website erstellt mit Next.js und Bootstrap."
+  }
+}

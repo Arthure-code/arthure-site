@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "title": "Arthure Lekoubou Djune — .NET MAUI Mobile Developer",
+    "description": "Mobile developer based in Quebec City, specialised in .NET MAUI and native Android. Cross-platform apps, application security and CI/CD pipelines. Microsoft certified AZ-900, DP-900 and SC-900."
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "skills": "Skills",
+    "certifications": "Certifications",
+    "contact": "Contact",
+    "toggleMenu": "Open menu",
+    "language": "Language"
+  },
+  "hero": {
+    "name": "Arthure Lekoubou Djune",
+    "role": ".NET MAUI Mobile Developer",
+    "location": "Quebec City, Canada",
+    "intro": "I build cross-platform mobile applications with .NET MAUI and native Android, from prototype to Google Play release.",
+    "intro2": "My training in secure application development leads me to treat security as a design constraint: minimal permissions, controlled inter-app sharing, static analysis on every commit.",
+    "ctaProjects": "View projects",
+    "ctaContact": "Get in touch",
+    "availability": "Looking for an internship or a first position"
+  },
+  "projects": {
+    "sectionTitle": "Projects",
+    "sectionLead": "Two personal projects, public and verifiable. Source code, quality analyses and commit history are all available on GitHub.",
+    "viewCode": "View code",
+    "viewAnalysis": "SonarCloud analysis",
+    "stack": "Tech stack",
+    "highlights": "Highlights",
+    "gallery": "Screenshots",
+    "openGallery": "Open screenshots",
+    "previous": "Previous image",
+    "next": "Next image",
+    "close": "Close",
+    "counter": "{current} of {total}"
+  },
+  "skills": {
+    "sectionTitle": "Technical skills",
+    "sectionLead": "Technologies used in my projects or during my training.",
+    "mobile": "Mobile",
+    "backend": "Backend and APIs",
+    "frontend": "Frontend",
+    "data": "Databases",
+    "security": "Application security",
+    "devops": "DevOps and quality"
+  },
+  "certifications": {
+    "sectionTitle": "Certifications",
+    "sectionLead": "Each certification links to its official verification page.",
+    "verify": "Verify",
+    "issuedBy": "Issued by",
+    "az900": "Microsoft Certified: Azure Fundamentals",
+    "dp900": "Microsoft Certified: Azure Data Fundamentals",
+    "sc900": "Microsoft Certified: Security, Compliance and Identity Fundamentals",
+    "postman": "Postman API Fundamentals Student Expert"
+  },
+  "contact": {
+    "sectionTitle": "Get in touch",
+    "sectionLead": "Open to internship and entry-level offers in the Quebec City area.",
+    "email": "Email",
+    "github": "GitHub",
+    "location": "Location",
+    "locationValue": "Quebec City, Canada"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "builtWith": "Built with Next.js and Bootstrap."
+  }
+}

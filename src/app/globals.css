@@ -1,49 +1,380 @@
+/* Bootstrap 5 en premier : nos règles ci-dessous peuvent ainsi le surcharger. */
+@import "bootstrap/dist/css/bootstrap.min.css";
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Palette sobre : bleu Microsoft assumé, gris neutres pour le reste. */
+  --ald-accent: #0d6efd;
+  --ald-ink: #1a1d21;
+  --ald-muted: #5c636a;
+  --ald-surface: #ffffff;
+  --ald-surface-alt: #f6f8fa;
+  --ald-border: #e3e6ea;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --ald-accent: #6ea8fe;
+    --ald-ink: #e9ecef;
+    --ald-muted: #adb5bd;
+    --ald-surface: #14171a;
+    --ald-surface-alt: #1c2024;
+    --ald-border: #2b3036;
   }
 }
 
 html {
+  scroll-behavior: smooth;
+  /* Compense la barre de navigation fixe lors des ancres. */
+  scroll-padding-top: 4.5rem;
+}
+
+body {
+  background-color: var(--ald-surface);
+  color: var(--ald-ink);
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+}
+
+/* Sections alternées pour découper la page sans traits de séparation. */
+.section {
+  padding: 4.5rem 0;
+}
+
+.section--alt {
+  background-color: var(--ald-surface-alt);
+}
+
+.section-title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.section-lead {
+  color: var(--ald-muted);
+  max-width: 46rem;
+}
+
+/* Carte générique, sans ombre portée : la bordure suffit et reste lisible
+   aussi bien en clair qu'en sombre. */
+.ald-card {
+  background-color: var(--ald-surface);
+  border: 1px solid var(--ald-border);
+  border-radius: 0.75rem;
+  transition:
+    border-color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.ald-card:hover {
+  border-color: var(--ald-accent);
+  transform: translateY(-2px);
+}
+
+/* Pastille de technologie : logo officiel + nom. */
+.tech-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--ald-border);
+  border-radius: 2rem;
+  font-size: 0.85rem;
+  color: var(--ald-ink);
+  background-color: var(--ald-surface);
+  white-space: nowrap;
+}
+
+.tech-chip img {
+  width: 18px;
+  height: 18px;
+  /* Certains logos officiels sont monochromes très clairs ou très foncés ;
+     on ne les recolore pas, on garde la charte de chaque marque. */
+}
+
+.text-muted-ald {
+  color: var(--ald-muted) !important;
+}
+
+.navbar-ald {
+  background-color: color-mix(in srgb, var(--ald-surface) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--ald-border);
+}
+
+/* Le lien d'évitement n'apparaît qu'au clavier : accessibilité sans bruit visuel. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 1080;
+  padding: 0.6rem 1rem;
+  background: var(--ald-accent);
+  color: #fff;
+  border-radius: 0 0 0.5rem 0;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* Respect de la préférence système : on coupe les transitions. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .ald-card,
+  .ald-card:hover {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* Bloc bas d'une carte projet (points marquants, technologies, badges),
+   séparé du bloc de présentation par un trait horizontal. */
+.project-split {
+  border-top: 1px solid var(--ald-border);
+}
+
+/* Compétences : disposition en colonnes. Chaque carte occupe exactement
+   la hauteur de son contenu et les colonnes se remplissent d'elles-mêmes,
+   ce qui évite les blocs à moitié vides d'une grille classique. */
+.skills-columns {
+  column-count: 1;
+  column-gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .skills-columns {
+    column-count: 2;
+  }
+}
+
+@media (min-width: 1200px) {
+  .skills-columns {
+    column-count: 3;
+  }
+}
+
+.skills-card {
+  /* Empêche une carte d'être coupée entre deux colonnes. */
+  break-inside: avoid;
+  page-break-inside: avoid;
+  margin-bottom: 1.5rem;
+  /* `inline-block` fiabilise break-inside sur les moteurs WebKit. */
+  display: inline-block;
+  width: 100%;
+}
+
+/* ---------- Galerie de captures ---------- */
+
+/* Pile de vignettes : elles se chevauchent au repos et s'écartent
+   en éventail au survol, pour signaler qu'il y en a plusieurs. */
+.gallery-stack {
+  position: relative;
+  display: block;
+  width: 100%;
+  /* Hauteur calculée sur les dimensions réelles des captures
+     (rapport hauteur/largeur jusqu'à 1:2.23) : une vignette de 92 px
+     de large mesure 205 px, et 212 px une fois inclinée de 5 degrés.
+     La réserve empêche l'éventail de recouvrir les boutons du dessous. */
+  height: 225px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.gallery-stack__item {
+  position: absolute;
+  /* Décalé du haut : la réserve verticale se répartit de part et d'autre. */
+  top: 8px;
+  left: 50%;
+  width: 92px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 1px solid var(--ald-border);
+  background-color: var(--ald-surface);
+  box-shadow: 0 2px 10px rgb(0 0 0 / 12%);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.gallery-stack__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Au repos : les trois vignettes sont presque superposées. */
+.gallery-stack__item--0 {
+  transform: translateX(-50%) rotate(-3deg);
+  z-index: 3;
+}
+.gallery-stack__item--1 {
+  transform: translateX(-46%) rotate(2deg);
+  z-index: 2;
+}
+.gallery-stack__item--2 {
+  transform: translateX(-54%) rotate(6deg);
+  z-index: 1;
+}
+
+/* Au survol ou au focus clavier : elles s'écartent. */
+.gallery-stack:hover .gallery-stack__item--0,
+.gallery-stack:focus-visible .gallery-stack__item--0 {
+  transform: translateX(-50%) translateY(-8px) rotate(0deg);
+}
+.gallery-stack:hover .gallery-stack__item--1,
+.gallery-stack:focus-visible .gallery-stack__item--1 {
+  transform: translateX(-118%) translateY(-2px) rotate(-5deg);
+}
+.gallery-stack:hover .gallery-stack__item--2,
+.gallery-stack:focus-visible .gallery-stack__item--2 {
+  transform: translateX(18%) translateY(-2px) rotate(5deg);
+}
+
+/* Nombre total de captures, en pastille. */
+.gallery-stack__count {
+  position: absolute;
+  right: 0.25rem;
+  bottom: 0.25rem;
+  z-index: 4;
+  min-width: 1.6rem;
+  padding: 0.1rem 0.45rem;
+  border-radius: 1rem;
+  background-color: var(--ald-accent);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* ---------- Visionneuse plein écran ---------- */
+
+/* Occupe toute la fenêtre : aucun rembourrage, l'image utilise
+   la totalité de la surface disponible. */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1090;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background-color: rgb(0 0 0 / 94%);
+}
+
+.lightbox__figure {
+  margin: 0;
+  width: 100%;
   height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-html,
-body {
+.lightbox__img {
   max-width: 100vw;
-  overflow-x: hidden;
+  max-height: 100vh;
+  width: auto;
+  height: auto;
+  /* `contain` garantit que l'image entière reste visible,
+     quelle que soit la forme de la fenêtre. */
+  object-fit: contain;
 }
 
-body {
-  min-height: 100%;
+/* Légende et compteur en surimpression, sur un dégradé qui préserve
+   la lisibilité sans masquer le bas de l'image. */
+.lightbox__caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
   display: flex;
   flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 3rem 1rem 1.25rem;
+  background: linear-gradient(to top, rgb(0 0 0 / 75%), transparent);
+  color: #f1f3f5;
+  font-size: 0.95rem;
+  text-align: center;
+  pointer-events: none;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+.lightbox__counter {
+  color: #ced4da;
+  font-size: 0.8rem;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.lightbox__nav,
+.lightbox__close {
+  position: absolute;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(255 255 255 / 25%);
+  background-color: rgb(0 0 0 / 45%);
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background-color 0.15s ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.lightbox__nav {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3.25rem;
+  height: 3.25rem;
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.lightbox__nav--prev {
+  left: 1rem;
+}
+
+.lightbox__nav--next {
+  right: 1rem;
+}
+
+.lightbox__close {
+  top: 1rem;
+  right: 1rem;
+  width: 2.75rem;
+  height: 2.75rem;
+  font-size: 1.15rem;
+}
+
+.lightbox__nav:hover,
+.lightbox__close:hover {
+  background-color: rgb(255 255 255 / 25%);
+}
+
+@media (max-width: 575px) {
+  .lightbox__nav {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+  }
+  .lightbox__nav--prev {
+    left: 0.5rem;
+  }
+  .lightbox__nav--next {
+    right: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-stack__item {
+    transition: none;
   }
 }

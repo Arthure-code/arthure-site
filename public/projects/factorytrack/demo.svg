@@ -1,0 +1,311 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620" font-family="Segoe UI, Arial, sans-serif">
+  <!--
+    Illustration synthetique du client MAUI FactoryTrack.
+    Ce n'est PAS une capture de l'app reelle : trajectoires simulees pour
+    illustrer le principe. Coordonnees : plan 60 m x 40 m a 12 px/m,
+    origine (0,0) en bas a gauche (l'axe Y est inverse en SVG).
+
+    Contenu :
+    - Perimetre de securite (rect pointille orange)
+    - Zones : Zone de production, Quai de chargement (autorisees) et
+      Local electrique (interdite)
+    - Machines fixes : postes non mobiles (rectangles gris)
+    - Equipements mobiles : tags avec trajectoires en boucle
+    - Deux tags traversent le Local electrique et virent au rouge.
+  -->
+
+  <!-- Fond -->
+  <rect width="800" height="620" fill="#FFFFFF"/>
+
+  <!-- Bandeau d'entete -->
+  <text x="40" y="38" font-size="22" font-weight="700" fill="#1E3A5F">Plan de l'usine</text>
+  <g transform="translate(40,68)">
+    <circle cx="0" cy="0" r="5" fill="#27AE60"/>
+    <text x="12" y="5" font-size="13" fill="#303A4A">En direct</text>
+    <text x="72" y="5" font-size="13" fill="#6B7684">· 4 machines · 9 equipements mobiles</text>
+  </g>
+
+  <!--
+    Cloche + menu 3 points a droite du bandeau (miroir de l'UI MAUI).
+    Le badge de la cloche s'anime pour coller aux alertes qui apparaissent
+    quand un tag entre dans le Local electrique ou sort du perimetre.
+  -->
+  <g transform="translate(710,58)">
+    <text x="0" y="10" font-size="20" text-anchor="middle" fill="#303A4A">🔔</text>
+    <!-- Badge : 0 au debut, monte a 1, 2, 3 au fil des alertes du cycle 15 s -->
+    <g transform="translate(10,-6)">
+      <circle r="9" fill="#C0392B" stroke="#FFFFFF" stroke-width="1.5"/>
+      <text x="0" y="4" font-size="10" font-weight="700" text-anchor="middle" fill="#FFFFFF">
+        <animate attributeName="opacity" dur="15s" repeatCount="indefinite"
+                 values="0;0;1;1;1;1" keyTimes="0;0.26;0.3;0.4;0.6;1"/>
+        <tspan>
+          <animate attributeName="baseline-shift" dur="15s" repeatCount="indefinite"
+                   values="0;0;0;0;0" keyTimes="0;0.25;0.5;0.75;1"/>
+        </tspan>
+        3
+      </text>
+      <animate attributeName="opacity" dur="15s" repeatCount="indefinite"
+               values="0;0;1;1;1;1" keyTimes="0;0.26;0.3;0.4;0.6;1"/>
+    </g>
+  </g>
+  <g transform="translate(750,58)">
+    <text x="0" y="12" font-size="22" font-weight="700" text-anchor="middle" fill="#303A4A">⋮</text>
+  </g>
+
+  <!-- Cadre du plan (720x480 = 60m x 40m a 12 px/m), decale a y=90 -->
+  <rect x="40" y="90" width="720" height="480" fill="#F6F7F9" stroke="#303A4A" stroke-width="2"/>
+
+  <!-- Grille tous les 5 m (60 px) -->
+  <g stroke="#E0E4EA" stroke-width="1">
+    <line x1="100" y1="90" x2="100" y2="570"/>
+    <line x1="160" y1="90" x2="160" y2="570"/>
+    <line x1="220" y1="90" x2="220" y2="570"/>
+    <line x1="280" y1="90" x2="280" y2="570"/>
+    <line x1="340" y1="90" x2="340" y2="570"/>
+    <line x1="400" y1="90" x2="400" y2="570"/>
+    <line x1="460" y1="90" x2="460" y2="570"/>
+    <line x1="520" y1="90" x2="520" y2="570"/>
+    <line x1="580" y1="90" x2="580" y2="570"/>
+    <line x1="640" y1="90" x2="640" y2="570"/>
+    <line x1="700" y1="90" x2="700" y2="570"/>
+
+    <line x1="40" y1="150" x2="760" y2="150"/>
+    <line x1="40" y1="210" x2="760" y2="210"/>
+    <line x1="40" y1="270" x2="760" y2="270"/>
+    <line x1="40" y1="330" x2="760" y2="330"/>
+    <line x1="40" y1="390" x2="760" y2="390"/>
+    <line x1="40" y1="450" x2="760" y2="450"/>
+    <line x1="40" y1="510" x2="760" y2="510"/>
+  </g>
+
+  <!-- Perimetre de securite : marge de 3 m a l'interieur du cadre -->
+  <g>
+    <rect x="76" y="126" width="648" height="408" fill="none" stroke="#F39C12" stroke-width="1.5"
+          stroke-dasharray="6,4"/>
+    <text x="82" y="140" font-size="11" font-weight="700" fill="#B9770E">Perimetre de securite</text>
+  </g>
+
+  <!-- Zones -->
+  <!-- Quai de chargement : (0,0)-(15,12) m -->
+  <g>
+    <rect x="40" y="426" width="180" height="144" fill="#2ECC71" fill-opacity="0.15" stroke="#27AE60" stroke-width="1.5"/>
+    <text x="46" y="440" font-size="12" fill="#27AE60">Quai de chargement</text>
+  </g>
+  <!-- Zone de production : (15,5)-(50,35) m -->
+  <g>
+    <rect x="220" y="150" width="420" height="360" fill="#2ECC71" fill-opacity="0.12" stroke="#27AE60" stroke-width="1.5"/>
+    <text x="226" y="164" font-size="12" fill="#27AE60">Zone de production</text>
+  </g>
+  <!-- Local electrique (interdite) : (52,32)-(60,40) m -->
+  <g>
+    <rect x="664" y="90" width="96" height="96" fill="#E74C3C" fill-opacity="0.19" stroke="#C0392B" stroke-width="1.5"/>
+    <text x="670" y="104" font-size="12" fill="#C0392B">Local electrique</text>
+  </g>
+
+  <!--
+    Machines fixes : rectangles bleu-gris avec code (M1..M4).
+    Placees dans la Zone de production, elles ne bougent pas.
+    Un halo hachure indique leur emprise physique.
+  -->
+  <defs>
+    <pattern id="hachures" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="6" stroke="#5D6D7E" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <g>
+    <!-- M1 : presse plieuse -->
+    <g transform="translate(250,190)">
+      <rect width="70" height="42" fill="url(#hachures)" opacity="0.35"/>
+      <rect width="70" height="42" fill="#5D6D7E" fill-opacity="0.85" stroke="#34495E" stroke-width="1.5"/>
+      <text x="35" y="21" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">M1</text>
+      <text x="35" y="34" text-anchor="middle" font-size="9" fill="#ECF0F1">Presse</text>
+    </g>
+    <!-- M2 : tour CN -->
+    <g transform="translate(360,240)">
+      <rect width="70" height="42" fill="url(#hachures)" opacity="0.35"/>
+      <rect width="70" height="42" fill="#5D6D7E" fill-opacity="0.85" stroke="#34495E" stroke-width="1.5"/>
+      <text x="35" y="21" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">M2</text>
+      <text x="35" y="34" text-anchor="middle" font-size="9" fill="#ECF0F1">Tour CN</text>
+    </g>
+    <!-- M3 : robot soudure -->
+    <g transform="translate(470,190)">
+      <rect width="70" height="42" fill="url(#hachures)" opacity="0.35"/>
+      <rect width="70" height="42" fill="#5D6D7E" fill-opacity="0.85" stroke="#34495E" stroke-width="1.5"/>
+      <text x="35" y="21" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">M3</text>
+      <text x="35" y="34" text-anchor="middle" font-size="9" fill="#ECF0F1">Robot soudure</text>
+    </g>
+    <!-- M4 : ligne d'assemblage -->
+    <g transform="translate(255,360)">
+      <rect width="360" height="30" fill="url(#hachures)" opacity="0.35"/>
+      <rect width="360" height="30" fill="#5D6D7E" fill-opacity="0.85" stroke="#34495E" stroke-width="1.5"/>
+      <text x="180" y="19" text-anchor="middle" font-size="11" font-weight="700" fill="#FFFFFF">M4  Ligne d'assemblage</text>
+    </g>
+  </g>
+
+  <!-- Passerelles aux 4 coins -->
+  <g stroke="#2C3E50" stroke-width="2" fill="none">
+    <line x1="34" y1="564" x2="46" y2="576"/><line x1="34" y1="576" x2="46" y2="564"/>
+    <line x1="754" y1="564" x2="766" y2="576"/><line x1="754" y1="576" x2="766" y2="564"/>
+    <line x1="754" y1="84" x2="766" y2="96"/><line x1="754" y1="96" x2="766" y2="84"/>
+    <line x1="34" y1="84" x2="46" y2="96"/><line x1="34" y1="96" x2="46" y2="84"/>
+  </g>
+  <g fill="#2C3E50" font-size="10">
+    <text x="52" y="588">GW-01</text>
+    <text x="722" y="588">GW-02</text>
+    <text x="722" y="82">GW-03</text>
+    <text x="52" y="82">GW-04</text>
+  </g>
+
+  <!--
+    Equipements mobiles (tags). 8 en tout, cycle 15 s.
+    TAG-04 et TAG-08 franchissent le Local electrique et virent au rouge.
+    Trajectoires evitent les zones des machines fixes.
+  -->
+  <defs>
+    <path id="t1"  d="M120,530 L160,510 L180,538 L140,550 Z"/>
+    <path id="t2"  d="M300,470 L360,450 L340,500 L280,490 Z"/>
+    <path id="t3"  d="M430,410 L490,400 L510,440 L450,450 Z"/>
+    <path id="t4"  d="M600,240 L660,200 L710,140 L680,120 L620,200 L580,260 Z"/>
+    <path id="t5"  d="M250,300 L310,280 L330,330 L270,340 Z"/>
+    <path id="t6"  d="M540,300 L590,280 L620,340 L560,350 Z"/>
+    <path id="t7"  d="M380,470 L450,450 L470,510 L410,520 Z"/>
+    <path id="t8"  d="M560,220 L640,180 L710,140 L700,120 L640,140 L580,180 Z"/>
+    <!-- t9 : trajectoire qui SORT du perimetre de securite en bas-gauche.
+         Le perimetre pointille va de (76,126) a (724,534) : sortir signifie
+         franchir y=534 vers le bas, ou x=76 vers la gauche. La trajectoire
+         va franchement au-dela pour rendre la sortie visible. -->
+    <path id="t9"  d="M200,500 L140,540 L60,555 L55,560 L55,555 L100,540 L200,500 Z"/>
+  </defs>
+
+  <style>
+    .pt { fill: #2177BB; stroke: #FFFFFF; stroke-width: 1.5; }
+    .lbl { fill: #1A5D92; font-size: 11px; font-weight: 700; }
+  </style>
+
+  <g>
+    <circle r="5" class="pt">
+      <animateMotion dur="15s" repeatCount="indefinite" rotate="0"><mpath href="#t1"/></animateMotion>
+    </circle>
+    <text class="lbl" dx="7" dy="-6">EQ-01
+      <animateMotion dur="15s" repeatCount="indefinite" rotate="0"><mpath href="#t1"/></animateMotion>
+    </text>
+  </g>
+
+  <g>
+    <circle r="5" class="pt">
+      <animateMotion dur="15s" begin="1s" repeatCount="indefinite" rotate="0"><mpath href="#t2"/></animateMotion>
+    </circle>
+    <text class="lbl" dx="7" dy="-6">EQ-02
+      <animateMotion dur="15s" begin="1s" repeatCount="indefinite" rotate="0"><mpath href="#t2"/></animateMotion>
+    </text>
+  </g>
+
+  <g>
+    <circle r="5" class="pt">
+      <animateMotion dur="15s" begin="2s" repeatCount="indefinite" rotate="0"><mpath href="#t3"/></animateMotion>
+    </circle>
+    <text class="lbl" dx="7" dy="-6">EQ-03
+      <animateMotion dur="15s" begin="2s" repeatCount="indefinite" rotate="0"><mpath href="#t3"/></animateMotion>
+    </text>
+  </g>
+
+  <!-- EQ-04 : dans Local electrique de 5.4s a 8.4s -->
+  <g>
+    <circle r="5" stroke="#FFFFFF" stroke-width="1.5">
+      <animate attributeName="fill" dur="15s" repeatCount="indefinite"
+               values="#2177BB;#2177BB;#C0392B;#C0392B;#2177BB;#2177BB"
+               keyTimes="0;0.36;0.4;0.56;0.6;1"/>
+      <animateMotion dur="15s" repeatCount="indefinite" rotate="0"><mpath href="#t4"/></animateMotion>
+    </circle>
+    <text dx="7" dy="-6" font-size="11" font-weight="700">
+      <animate attributeName="fill" dur="15s" repeatCount="indefinite"
+               values="#1A5D92;#1A5D92;#943126;#943126;#1A5D92;#1A5D92"
+               keyTimes="0;0.36;0.4;0.56;0.6;1"/>
+      EQ-04
+      <animateMotion dur="15s" repeatCount="indefinite" rotate="0"><mpath href="#t4"/></animateMotion>
+    </text>
+  </g>
+
+  <g>
+    <circle r="5" class="pt">
+      <animateMotion dur="15s" begin="3s" repeatCount="indefinite" rotate="0"><mpath href="#t5"/></animateMotion>
+    </circle>
+    <text class="lbl" dx="7" dy="-6">EQ-05
+      <animateMotion dur="15s" begin="3s" repeatCount="indefinite" rotate="0"><mpath href="#t5"/></animateMotion>
+    </text>
+  </g>
+
+  <g>
+    <circle r="5" class="pt">
+      <animateMotion dur="15s" begin="1.5s" repeatCount="indefinite" rotate="0"><mpath href="#t6"/></animateMotion>
+    </circle>
+    <text class="lbl" dx="7" dy="-6">EQ-06
+      <animateMotion dur="15s" begin="1.5s" repeatCount="indefinite" rotate="0"><mpath href="#t6"/></animateMotion>
+    </text>
+  </g>
+
+  <g>
+    <circle r="5" class="pt">
+      <animateMotion dur="15s" begin="2.5s" repeatCount="indefinite" rotate="0"><mpath href="#t7"/></animateMotion>
+    </circle>
+    <text class="lbl" dx="7" dy="-6">EQ-07
+      <animateMotion dur="15s" begin="2.5s" repeatCount="indefinite" rotate="0"><mpath href="#t7"/></animateMotion>
+    </text>
+  </g>
+
+  <!-- EQ-08 : dans Local electrique de 3.9s a 6.5s (decale de 4s) -->
+  <g>
+    <circle r="5" stroke="#FFFFFF" stroke-width="1.5">
+      <animate attributeName="fill" dur="15s" begin="4s" repeatCount="indefinite"
+               values="#2177BB;#2177BB;#C0392B;#C0392B;#2177BB;#2177BB"
+               keyTimes="0;0.26;0.3;0.43;0.46;1"/>
+      <animateMotion dur="15s" begin="4s" repeatCount="indefinite" rotate="0"><mpath href="#t8"/></animateMotion>
+    </circle>
+    <text dx="7" dy="-6" font-size="11" font-weight="700">
+      <animate attributeName="fill" dur="15s" begin="4s" repeatCount="indefinite"
+               values="#1A5D92;#1A5D92;#943126;#943126;#1A5D92;#1A5D92"
+               keyTimes="0;0.26;0.3;0.43;0.46;1"/>
+      EQ-08
+      <animateMotion dur="15s" begin="4s" repeatCount="indefinite" rotate="0"><mpath href="#t8"/></animateMotion>
+    </text>
+  </g>
+
+  <!-- EQ-09 : trajectoire 6 segments (chacun ~2.5s sur cycle 15s).
+       Phases visuelles :
+         0 - 5s   : dans le perimetre (bleu)
+         5 - 12s  : hors du perimetre (orange, ~7s)
+         12 - 15s : rentre puis stationne (bleu)
+       Les keyTimes du fill collent a ces bornes. -->
+  <g>
+    <circle r="5" stroke="#FFFFFF" stroke-width="1.5">
+      <animate attributeName="fill" dur="15s" repeatCount="indefinite"
+               values="#2177BB;#2177BB;#F39C12;#F39C12;#2177BB;#2177BB"
+               keyTimes="0;0.33;0.35;0.78;0.8;1"/>
+      <animateMotion dur="15s" repeatCount="indefinite" rotate="0"><mpath href="#t9"/></animateMotion>
+    </circle>
+    <text dx="7" dy="-6" font-size="11" font-weight="700">
+      <animate attributeName="fill" dur="15s" repeatCount="indefinite"
+               values="#1A5D92;#1A5D92;#B9770E;#B9770E;#1A5D92;#1A5D92"
+               keyTimes="0;0.33;0.35;0.78;0.8;1"/>
+      EQ-09
+      <animateMotion dur="15s" repeatCount="indefinite" rotate="0"><mpath href="#t9"/></animateMotion>
+    </text>
+  </g>
+
+  <!-- Legende en bas : petite palette d'icones -->
+  <g transform="translate(40,595)" font-size="11" fill="#4A5461">
+    <circle cx="6" cy="0" r="5" fill="#2177BB" stroke="#FFFFFF" stroke-width="1"/>
+    <text x="18" y="4">Equipement mobile</text>
+
+    <rect x="140" y="-5" width="14" height="10" fill="#5D6D7E" stroke="#34495E"/>
+    <text x="160" y="4">Machine fixe</text>
+
+    <line x1="248" y1="0" x2="266" y2="0" stroke="#F39C12" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <text x="272" y="4">Perimetre securite</text>
+
+    <rect x="378" y="-6" width="14" height="12" fill="#E74C3C" fill-opacity="0.19" stroke="#C0392B"/>
+    <text x="398" y="4">Zone interdite</text>
+
+    <text x="580" y="4" fill="#6B7684">Illustration synthetique</text>
+  </g>
+</svg>

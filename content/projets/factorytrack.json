@@ -1,0 +1,59 @@
+{
+  "titre": "FactoryTrack",
+  "annee": "2026",
+  "ordre": 20,
+  "publie": true,
+  "fr": {
+    "accroche": "Localisation temps réel d'équipements en usine",
+    "description": "Système qui suit la position d'équipements à l'intérieur d'un bâtiment, là où le GPS ne fonctionne pas. Les mesures radio arrivent par gRPC, les positions sont calculées par trilatération, historisées puis diffusées en direct vers un client mobile.",
+    "points": [
+      "Architecture en couches : domaine, positionnement, infrastructure, API, client mobile",
+      "Ingestion gRPC tolérante aux doublons et aux mesures hors ordre",
+      "Séries temporelles dans TimescaleDB, diffusion en direct par SignalR",
+      "Tests unitaires et d'intégration, analyse CodeQL et SonarCloud à chaque commit"
+    ],
+    "note": "La couche matérielle est simulée : un générateur produit les mesures qu'une passerelle réelle relèverait, ce qui permet de démontrer toute la chaîne logicielle."
+  },
+  "en": {
+    "accroche": "Real-time indoor asset tracking for factories",
+    "description": "A system that tracks equipment inside a building, where GPS does not work. Radio measurements arrive over gRPC, positions are computed by trilateration, stored as time series, then streamed live to a mobile client.",
+    "points": [
+      "Layered architecture: domain, positioning, infrastructure, API, mobile client",
+      "gRPC ingestion tolerant to duplicates and out-of-order measurements",
+      "Time series in TimescaleDB, live streaming over SignalR",
+      "Unit and integration tests, CodeQL and SonarCloud analysis on every commit"
+    ],
+    "note": "The hardware layer is simulated: a generator produces the measurements a real gateway would report, which lets the entire software pipeline be demonstrated."
+  },
+  "depot": "https://github.com/Arthure-code/factorytrack",
+  "sonarProject": "Arthure-code_factorytrack",
+  "technologies": [
+    {
+      "nom": ".NET 9",
+      "logo": "dotnetcore"
+    },
+    {
+      "nom": "C#",
+      "logo": "csharp"
+    },
+    {
+      "nom": "PostgreSQL",
+      "logo": "postgresql"
+    },
+    {
+      "nom": "Docker",
+      "logo": "docker"
+    },
+    {
+      "nom": ".NET MAUI",
+      "logo": "xamarin"
+    }
+  ],
+  "captures": [
+    {
+      "image": "/projects/factorytrack/demo.svg",
+      "legendeFr": "Chaîne de traitement, des balises radio à l'écran opérateur",
+      "legendeEn": "Processing chain, from radio tags to the operator screen"
+    }
+  ]
+}
