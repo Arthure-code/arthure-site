@@ -43,6 +43,31 @@ export default function PersonJsonLd({
       addressCountry: "CA",
     },
 
+    /**
+     * Profession rattachée à la Classification nationale des professions.
+     *
+     * L'intitulé visible dit « full-stack », parce que c'est le mot que
+     * tapent les recruteurs. La CNP, elle, ne connaît pas ce terme : son
+     * groupe 21234 s'appelle « Développeurs et programmeurs Web ». Les deux
+     * coexistent ici, chacun à sa place — le mot courant pour les humains,
+     * le code officiel pour les machines qui savent le lire.
+     */
+    hasOccupation: {
+      "@type": "Occupation",
+      name: "Développeur Web",
+      occupationalCategory: {
+        "@type": "CategoryCode",
+        codeValue: "21234",
+        name: "Développeurs/développeuses et programmeurs/programmeuses Web",
+        inCodeSet: {
+          "@type": "CategoryCodeSet",
+          name: "Classification nationale des professions (CNP) 2021",
+          url: "https://noc.esdc.gc.ca/",
+        },
+      },
+      occupationLocation: { "@type": "City", name: "Québec, QC, Canada" },
+    },
+
     // `sameAs` relie cette page aux profils qui désignent la même personne :
     // c'est ce lien qui empêche la confusion avec un homonyme.
     sameAs: [contact.github, contact.linkedin].filter(Boolean),

@@ -64,16 +64,6 @@ export type SkillGroupKey = "mobile" | "backend" | "frontend" | "data" | "securi
 
 export const skillGroups: Array<{ titleKey: SkillGroupKey; items: Tech[] }> = [
   {
-    titleKey: "mobile",
-    items: [
-      { label: ".NET MAUI", icon: "dotnetcore" },
-      { label: "Xamarin", icon: "xamarin" },
-      { label: "Android", icon: "android" },
-      { label: "Java", icon: "java" },
-      { label: "Kotlin", icon: "kotlin" },
-    ],
-  },
-  {
     titleKey: "backend",
     items: [
       { label: "C#", icon: "csharp" },
@@ -124,6 +114,16 @@ export const skillGroups: Array<{ titleKey: SkillGroupKey; items: Tech[] }> = [
       { label: "Git", icon: "git" },
       { label: "GitHub", icon: "github" },
       { label: "Docker", icon: "docker" },
+    ],
+  },
+  {
+    titleKey: "mobile",
+    items: [
+      { label: ".NET MAUI", icon: "dotnetcore" },
+      { label: "Xamarin", icon: "xamarin" },
+      { label: "Android", icon: "android" },
+      { label: "Java", icon: "java" },
+      { label: "Kotlin", icon: "kotlin" },
     ],
   },
 ]

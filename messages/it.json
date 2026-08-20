@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Arthure Lekoubou Djune — Sviluppatore mobile .NET MAUI",
-    "description": "Sviluppatore mobile con sede a Québec, specializzato in .NET MAUI e Android nativo. Applicazioni multipiattaforma, sicurezza applicativa e pipeline CI/CD. Certificato Microsoft AZ-900, DP-900 e SC-900."
+    "title": "Arthure Lekoubou Djune — Sviluppatore web full-stack",
+    "description": "Sviluppatore web full-stack a Québec. ASP.NET Core, Node.js, Laravel, React, Vue.js, Angular, SQL Server, PostgreSQL, MongoDB, Docker, Azure. Sicurezza applicativa e pipeline CI/CD. Certificato Microsoft AZ-900, DP-900 e SC-900."
   },
   "nav": {
     "home": "Home",
@@ -14,10 +14,10 @@
   },
   "hero": {
     "name": "Arthure Lekoubou Djune",
-    "role": "Sviluppatore mobile .NET MAUI",
+    "role": "Sviluppatore web full-stack",
     "location": "Québec, Canada",
-    "intro": "Realizzo applicazioni mobili multipiattaforma con .NET MAUI e Android nativo, dal prototipo alla pubblicazione su Google Play.",
-    "intro2": "La mia formazione in sviluppo di applicazioni sicure mi porta a trattare la sicurezza come un vincolo di progettazione: permessi minimi, condivisione tra applicazioni controllata e analisi statica a ogni commit.",
+    "intro": "ASP.NET Core, Node.js e Laravel lato server. React, Vue.js e Angular lato client. SQL Server, PostgreSQL e MongoDB per i dati.",
+    "intro2": "Sicurezza applicativa trattata come vincolo di progettazione: OWASP Top 10, analisi statica a ogni commit. Anche .NET MAUI e Android nativo per il mobile.",
     "ctaProjects": "Vedi i progetti",
     "ctaContact": "Contattami",
     "downloadCv": "Scarica il mio CV"

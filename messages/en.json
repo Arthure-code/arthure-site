@@ -1,7 +1,7 @@
 {
   "meta": {
-    "title": "Arthure Lekoubou Djune — .NET MAUI Mobile Developer",
-    "description": "Mobile developer based in Quebec City, specialised in .NET MAUI and native Android. Cross-platform apps, application security and CI/CD pipelines. Microsoft certified AZ-900, DP-900 and SC-900."
+    "title": "Arthure Lekoubou Djune — Full-Stack Web Developer",
+    "description": "Full-stack web developer in Quebec City. ASP.NET Core, Node.js, Laravel, React, Vue.js, Angular, SQL Server, PostgreSQL, MongoDB, Docker, Azure. Application security and CI/CD pipelines. Microsoft certified AZ-900, DP-900 and SC-900."
   },
   "nav": {
     "home": "Home",
@@ -14,10 +14,10 @@
   },
   "hero": {
     "name": "Arthure Lekoubou Djune",
-    "role": ".NET MAUI Mobile Developer",
+    "role": "Full-Stack Web Developer",
     "location": "Quebec City, Canada",
-    "intro": "I build cross-platform mobile applications with .NET MAUI and native Android, from prototype to Google Play release.",
-    "intro2": "My training in secure application development leads me to treat security as a design constraint: minimal permissions, controlled inter-app sharing, static analysis on every commit.",
+    "intro": "ASP.NET Core, Node.js and Laravel on the server. React, Vue.js and Angular on the client. SQL Server, PostgreSQL and MongoDB for data.",
+    "intro2": "Application security treated as a design constraint: OWASP Top 10, static analysis on every commit. Also .NET MAUI and native Android for mobile.",
     "ctaProjects": "View projects",
     "ctaContact": "Get in touch",
     "downloadCv": "Download my CV"
