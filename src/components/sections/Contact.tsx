@@ -39,8 +39,9 @@ export default function Contact() {
   return (
     <section id="contact" className="section section--alt">
       <div className="container">
-        <h2 className="section-title h1 mb-2">{t("sectionTitle")}</h2>
-        <p className="section-lead mb-5">{t("sectionLead")}</p>
+        {/* Sans phrase d'introduction, le titre porte seul l'espacement
+            qui precede la rangee de coordonnees. */}
+        <h2 className="section-title h1 mb-5">{t("sectionTitle")}</h2>
 
         {/* Une seule rangée sur grand écran, sans encadré : les cinq entrées
             sont courtes et se lisent d'un coup d'oeil, des cartes leur
