@@ -42,13 +42,16 @@ export default function Contact() {
         <h2 className="section-title h1 mb-2">{t("sectionTitle")}</h2>
         <p className="section-lead mb-5">{t("sectionLead")}</p>
 
-        {/* Cinq cartes dans une grille de trois : la dernière rangée est
-            incomplète, on la centre pour qu'elle paraisse voulue plutôt
-            que tronquée. */}
-        <div className="row g-4 justify-content-center">
+        {/* Une seule rangée sur grand écran, sans encadré : les cinq entrées
+            sont courtes et se lisent d'un coup d'oeil, des cartes leur
+            donneraient un poids qu'elles n'ont pas. Elles se replient en
+            deux puis trois colonnes sur les écrans plus étroits, et une
+            seule sur téléphone : en dessous, l'adresse courriel se couperait
+            au milieu du domaine, faute de point de césure. */}
+        <div className="row g-4 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5">
           {items.map(item => (
-            <div key={item.label} className="col-md-4">
-              <div className="ald-card h-100 p-4">
+            <div key={item.label} className="col">
+              <div>
                 <p className="small text-uppercase fw-semibold text-muted-ald mb-2">
                   {item.label}
                 </p>
@@ -61,7 +64,7 @@ export default function Contact() {
                     className={
                       item.logo
                         ? "contact-logo d-inline-flex"
-                        : "fw-semibold text-decoration-none"
+                        : "contact-value fw-semibold text-decoration-none"
                     }
                     style={item.logo ? undefined : { color: "var(--ald-accent)", wordBreak: "break-word" }}
                     // Sans texte visible, le lien a besoin d'un nom accessible.
@@ -81,7 +84,7 @@ export default function Contact() {
                     )}
                   </a>
                 ) : (
-                  <p className="fw-semibold mb-0">{item.value}</p>
+                  <p className="contact-value fw-semibold mb-0">{item.value}</p>
                 )}
               </div>
             </div>

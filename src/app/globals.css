@@ -407,3 +407,10 @@ body {
     transform: none;
   }
 }
+
+/* Rangée de contact : les colonnes font environ 204 px utiles, et l'adresse
+   courriel en demande 212 à taille normale. Un point de moins la fait tenir
+   sur une ligne, ce qui evite une coupure au milieu du domaine. */
+.contact-value {
+  font-size: 0.9375rem;
+}
