@@ -44,6 +44,21 @@ L'assistant écrit alors dans `.env` les variables `KEYSTATIC_GITHUB_CLIENT_ID`,
 mêmes valeurs, accompagnées de `NEXT_PUBLIC_KEYSTATIC_STORAGE=github`, doivent être
 déclarées dans l'hébergeur.
 
+## Accès à l'administration
+
+Keystatic empêche déjà toute écriture sans droit de poussée sur le dépôt :
+un visiteur sans ce droit se retrouve à travailler sur une copie, et son
+enregistrement devient une demande de fusion.
+
+Une seconde barrière est posée en amont, dans `src/app/keystatic/layout.tsx` :
+le jeton de la session est présenté à l'API de GitHub, et toute identité
+absente de la liste des administrateurs reçoit une page introuvable. La
+vérification interroge GitHub plutôt que de lire le témoin, car celui-ci
+n'est pas `httpOnly` et reste donc modifiable depuis le navigateur.
+
+La liste par défaut ne contient que le propriétaire du dépôt. Pour l'élargir,
+déclarer `KEYSTATIC_ADMINS` avec les comptes séparés par des virgules.
+
 ## Structure
 
 | Dossier | Contenu |
