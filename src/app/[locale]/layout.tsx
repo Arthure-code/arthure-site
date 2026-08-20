@@ -6,6 +6,7 @@ import type { ReactNode } from "react"
 import Footer from "@/components/Footer"
 import Navbar from "@/components/Navbar"
 import { locales, routing, type Locale } from "@/i18n/routing"
+import { chargerBadges } from "@/lib/badges"
 import "../globals.css"
 
 /**
@@ -71,6 +72,9 @@ export default async function LocaleLayout({
 
   const t = await getTranslations("nav")
 
+  // Lus au build, comme le reste du contenu administrable.
+  const badges = await chargerBadges()
+
   return (
     <html lang={locale}>
       <body className="d-flex flex-column min-vh-100">
@@ -82,7 +86,7 @@ export default async function LocaleLayout({
           <main id="contenu" className="flex-grow-1">
             {children}
           </main>
-          <Footer />
+          <Footer badges={badges} />
         </NextIntlClientProvider>
       </body>
     </html>

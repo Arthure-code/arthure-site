@@ -414,3 +414,31 @@ body {
 .contact-value {
   font-size: 0.9375rem;
 }
+
+/* Badge d'apprentissage dans le pied de page.
+   Meme traitement que les logos de contact : legerement en retrait au
+   repos, pleinement lisible au survol, pour signaler le lien sans
+   detourner l'oeil du contenu principal. */
+.footer-badge {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+a:hover > .footer-badge,
+a:focus-visible > .footer-badge {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-badge {
+    transition: none;
+  }
+  a:hover > .footer-badge,
+  a:focus-visible > .footer-badge {
+    transform: none;
+  }
+}

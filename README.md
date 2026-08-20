@@ -83,6 +83,7 @@ racine du dossier déclaré — `public/cv/` pour le curriculum vitae.
 | `src/app/[locale]/` | Pages, préfixées par la langue |
 | `src/components/` | Composants d'affichage |
 | `content/certifications/` | Une fiche JSON par certification |
+| `content/badges/` | Une fiche JSON par badge d'apprentissage |
 | `content/documents.json` | Curriculum vitae proposé au téléchargement |
 | `src/data/site.ts` | Coordonnées et compétences |
 | `src/i18n/` | Liste des langues et navigation traduite |

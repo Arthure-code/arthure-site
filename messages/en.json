@@ -62,6 +62,7 @@
     "locationValue": "Quebec City, Canada"
   },
   "footer": {
+    "badges": "Learning badges",
     "rights": "All rights reserved.",
     "builtWith": "Built with Next.js and Bootstrap."
   }

@@ -259,6 +259,66 @@ export default config({
         }),
       },
     }),
+
+    /**
+     * Badges d'apprentissage, distincts des certifications : ils
+     * récompensent un parcours suivi, non un examen surveillé. D'où leur
+     * place dans le pied de page plutôt que dans la section Certifications,
+     * où ils affaibliraient la crédibilité des examens passés.
+     */
+    badges: collection({
+      label: "Badges d'apprentissage",
+      slugField: "nom",
+      path: "content/badges/*",
+      format: { data: "json" },
+
+      columns: ["nom", "emetteur", "date"],
+
+      schema: {
+        nom: fields.slug({
+          name: {
+            label: "Nom du badge",
+            description: "Par exemple AI Skills Fest 2026.",
+            validation: { isRequired: true },
+          },
+        }),
+
+        emetteur: fields.text({
+          label: "Délivré par",
+          validation: { isRequired: true },
+        }),
+
+        date: fields.text({
+          label: "Date d'obtention",
+          description: "Par exemple juin 2026, ou simplement 2026.",
+        }),
+
+        image: fields.image({
+          label: "Image du badge",
+          description:
+            "Téléchargeable depuis Credly : la page du badge, puis l'image affichée.",
+          directory: "public/badges",
+          publicPath: "/badges/",
+          validation: { isRequired: true },
+        }),
+
+        lienVerification: fields.url({
+          label: "Lien de vérification",
+          description: "Page Credly ou équivalent, qui atteste l'obtention.",
+        }),
+
+        ordre: fields.integer({
+          label: "Ordre d'affichage",
+          description: "Les plus petits nombres apparaissent en premier.",
+          defaultValue: 100,
+        }),
+
+        publie: fields.checkbox({
+          label: "Afficher sur le site",
+          defaultValue: true,
+        }),
+      },
+    }),
   },
 
   singletons: {
