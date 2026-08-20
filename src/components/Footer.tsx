@@ -33,24 +33,31 @@ export default function Footer({ badges }: { badges: BadgeAffiche[] }) {
             des certifications obtenues par examen. Le libellé le dit
             explicitement, pour ne laisser aucune ambiguïté au lecteur. */}
         {badges.length > 0 && (
-          <div className="text-center mb-4">
+          <div className="mb-4">
             <p className="small text-uppercase fw-semibold text-muted-ald mb-3">
               {t("badges")}
             </p>
-            <div className="d-flex flex-wrap gap-3 align-items-center justify-content-center">
+            <div className="d-flex flex-wrap gap-4">
               {badges.map(badge => {
                 const legende = [badge.emetteur, badge.date]
                   .filter(Boolean)
                   .join(" · ")
-                const vignette = (
-                  <Image
-                    src={badge.image}
-                    alt={badge.nom}
-                    title={`${badge.nom} — ${legende}`}
-                    width={64}
-                    height={64}
-                    className="footer-badge"
-                  />
+
+                // Le nom accompagne l'image : un badge seul ne se lit pas,
+                // et personne n'a envie de survoler pour savoir de quoi
+                // il s'agit.
+                const contenu = (
+                  <>
+                    <Image
+                      src={badge.image}
+                      alt=""
+                      aria-hidden="true"
+                      width={64}
+                      height={64}
+                      className="footer-badge"
+                    />
+                    <span className="footer-badge__nom">{badge.nom}</span>
+                  </>
                 )
 
                 return badge.lienVerification ? (
@@ -59,14 +66,15 @@ export default function Footer({ badges }: { badges: BadgeAffiche[] }) {
                     href={badge.lienVerification}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="d-inline-flex"
+                    className="footer-badge__lien"
+                    title={legende}
                     aria-label={`${badge.nom} — ${legende}`}
                   >
-                    {vignette}
+                    {contenu}
                   </a>
                 ) : (
-                  <span key={badge.nom} className="d-inline-flex">
-                    {vignette}
+                  <span key={badge.nom} className="footer-badge__lien" title={legende}>
+                    {contenu}
                   </span>
                 )
               })}

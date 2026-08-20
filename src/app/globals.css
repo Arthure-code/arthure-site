@@ -416,9 +416,21 @@ body {
 }
 
 /* Badge d'apprentissage dans le pied de page.
-   Meme traitement que les logos de contact : legerement en retrait au
-   repos, pleinement lisible au survol, pour signaler le lien sans
-   detourner l'oeil du contenu principal. */
+   Aligne a gauche, avec son nom sous l'image : un badge seul ne se lit
+   pas, et le survol n'est pas une option sur telephone. Legerement en
+   retrait au repos, pleinement lisible au survol, comme les logos de
+   contact. */
+.footer-badge__lien {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  max-width: 8.5rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--ald-muted);
+}
+
 .footer-badge {
   width: 64px;
   height: 64px;
@@ -427,18 +439,28 @@ body {
   transition: opacity 0.15s ease, transform 0.15s ease;
 }
 
-a:hover > .footer-badge,
-a:focus-visible > .footer-badge {
+.footer-badge__nom {
+  font-size: 0.75rem;
+  line-height: 1.25;
+}
+
+.footer-badge__lien:hover .footer-badge,
+.footer-badge__lien:focus-visible .footer-badge {
   opacity: 1;
   transform: translateY(-2px);
+}
+
+.footer-badge__lien:hover .footer-badge__nom,
+.footer-badge__lien:focus-visible .footer-badge__nom {
+  color: var(--ald-accent);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .footer-badge {
     transition: none;
   }
-  a:hover > .footer-badge,
-  a:focus-visible > .footer-badge {
+  .footer-badge__lien:hover .footer-badge,
+  .footer-badge__lien:focus-visible .footer-badge {
     transform: none;
   }
 }
