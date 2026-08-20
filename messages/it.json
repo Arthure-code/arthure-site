@@ -62,7 +62,6 @@
     "locationValue": "Québec, Canada"
   },
   "footer": {
-    "badges": "Badge di apprendimento",
     "rights": "Tutti i diritti riservati.",
     "builtWith": "Sito realizzato con Next.js e Bootstrap."
   }

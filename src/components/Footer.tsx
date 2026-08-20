@@ -30,14 +30,11 @@ export default function Footer({ badges }: { badges: BadgeAffiche[] }) {
     >
       <div className="container">
         {/* Badges d'apprentissage : ils tiennent leur place ici, à l'écart
-            des certifications obtenues par examen. Le libellé le dit
-            explicitement, pour ne laisser aucune ambiguïté au lecteur. */}
+            des certifications obtenues par examen, qui ont leur propre
+            section plus haut. Chacun porte son nom et renvoie à sa page de
+            vérification ; c'est de là que le lecteur tire ce qu'ils sont. */}
         {badges.length > 0 && (
-          <div className="mb-4">
-            <p className="small text-uppercase fw-semibold text-muted-ald mb-3">
-              {t("badges")}
-            </p>
-            <div className="d-flex flex-wrap gap-4">
+          <div className="d-flex flex-wrap gap-4 mb-4">
               {badges.map(badge => {
                 const legende = [badge.emetteur, badge.date]
                   .filter(Boolean)
@@ -78,7 +75,6 @@ export default function Footer({ badges }: { badges: BadgeAffiche[] }) {
                   </span>
                 )
               })}
-            </div>
           </div>
         )}
 

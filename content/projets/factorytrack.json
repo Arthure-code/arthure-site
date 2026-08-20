@@ -26,7 +26,7 @@
     "note": "The hardware layer is simulated: a generator produces the measurements a real gateway would report, which lets the entire software pipeline be demonstrated."
   },
   "depot": "https://github.com/Arthure-code/factorytrack",
-  "sonarProject": "Arthure-code_factorytrack",
+  "sonarProject": "",
   "technologies": [
     {
       "nom": ".NET 9",
