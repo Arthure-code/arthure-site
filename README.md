@@ -91,6 +91,32 @@ Toutes ces adresses sont absolues et dérivent de `siteUrl`, dans
 `src/data/site.ts`. Passer à un nom de domaine personnel se fait en
 déclarant `NEXT_PUBLIC_SITE_URL` chez l'hébergeur, sans toucher au code.
 
+## Accessibilité
+
+Le site vise le **SGQRI 008 3.0**, standard québécois en vigueur depuis le
+29 avril 2024. Il est plus exigeant que la norme fédérale
+**CAN/ASC-EN 301 549:2024** : là où celle-ci demande WCAG 2.1 niveau AA, le
+standard québécois y ajoute sept critères de WCAG 2.2, dont la taille de
+cible minimale (2.5.8), le focus non masqué (2.4.11) et l'apparence du
+focus (2.4.13).
+
+Ni l'un ni l'autre ne s'impose légalement à un site personnel — ils visent
+les organismes publics et les entités sous réglementation fédérale. Le site
+s'y conforme quand même : c'est vérifiable, et la plupart des clients
+publics du Québec l'exigent de leurs fournisseurs.
+
+Points mesurés plutôt que supposés :
+
+| Critère | Mesure |
+| --- | --- |
+| 1.4.3 Contraste minimal | accent 5,84 sur blanc, 5,48 sur gris ; 6,79 en mode sombre |
+| 1.4.10 Redimensionnement | aucun défilement horizontal à 320 px |
+| 1.4.12 Espacement du texte | tient les surcharges imposées par le critère |
+| 2.4.11 Focus non masqué | `scroll-padding-top` compense la barre fixe |
+| 2.4.13 Apparence du focus | contour de 3 px, décalé de 2 px |
+| 2.5.8 Taille de cible | 24 px minimum hors liens en ligne |
+| 2.3.3 Animation | défilement fluide désactivé sous `prefers-reduced-motion` |
+
 ## Structure
 
 | Dossier | Contenu |

@@ -2,8 +2,14 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
 :root {
-  /* Palette sobre : bleu Microsoft assumé, gris neutres pour le reste. */
-  --ald-accent: #0d6efd;
+  /*
+   * Palette sobre. L'accent est plus sombre que le bleu par défaut de
+   * Bootstrap, qui tombait à 4,23 sur le gris des sections alternées —
+   * sous le seuil de 4,5 exigé par WCAG 2.1 AA, donc par le SGQRI 008 3.0
+   * du Québec comme par la norme fédérale CAN/ASC-EN 301 549.
+   * Celui-ci tient 5,84 sur blanc et 5,48 sur gris.
+   */
+  --ald-accent: #0b5ed7;
   --ald-ink: #1a1d21;
   --ald-muted: #5c636a;
   --ald-surface: #ffffff;
@@ -462,5 +468,63 @@ body {
   .footer-badge__lien:hover .footer-badge,
   .footer-badge__lien:focus-visible .footer-badge {
     transform: none;
+  }
+}
+
+/* ---------- Accessibilité : WCAG 2.1 AA et ajouts WCAG 2.2 ----------
+   Le site vise le SGQRI 008 3.0, standard québécois en vigueur depuis le
+   29 avril 2024, plus exigeant que la norme fédérale CAN/ASC-EN 301 549
+   puisqu'il ajoute sept critères de WCAG 2.2 à WCAG 2.1 AA. */
+
+/* 2.4.13 Apparence du focus, 1.4.11 Contraste des éléments non textuels.
+   Bootstrap retire le contour natif et le remplace par une ombre portée
+   qui se voit mal sur fond clair. On rétablit un contour franc, décollé de
+   l'élément pour rester lisible quelle que soit sa couleur de fond. */
+:focus-visible {
+  outline: 3px solid var(--ald-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* La règle précédente doit gagner sur celles de Bootstrap, qui ciblent
+   .btn:focus avec une spécificité supérieure. */
+.btn:focus-visible,
+.nav-link:focus-visible,
+.dropdown-item:focus-visible,
+a:focus-visible {
+  outline: 3px solid var(--ald-accent);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+/* 2.5.8 Taille de cible minimale : 24 × 24 px.
+   Le critère excepte les liens inclus dans une phrase, d'où la restriction
+   à ceux qui se suffisent à eux-mêmes — les coordonnées de la section
+   Contact, qui occupaient 20 px de haut. */
+.contact-value,
+.contact-logo {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+}
+
+/* 1.4.3 Contraste du texte. La classe .link-secondary de Bootstrap donne
+   #6c757d, soit 4,40 sur le gris des sections : insuffisant. Notre gris
+   sourd tient 5,72 au même endroit. */
+footer .link-secondary {
+  color: var(--ald-muted) !important;
+}
+
+footer .link-secondary:hover,
+footer .link-secondary:focus-visible {
+  color: var(--ald-accent) !important;
+}
+
+/* 2.3.3 Animation déclenchée par les interactions.
+   Le défilement fluide est agréable, mais provoque des malaises chez les
+   personnes sensibles au mouvement ; il cède devant leur réglage système. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }
