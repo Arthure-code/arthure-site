@@ -20,7 +20,7 @@
     "intro2": "Sicurezza applicativa trattata come vincolo di progettazione: OWASP Top 10, analisi statica a ogni commit. Anche .NET MAUI e Android nativo per il mobile.",
     "ctaProjects": "Vedi i progetti",
     "ctaContact": "Contattami",
-    "downloadCv": "Scarica il mio CV"
+    "downloadCv": "Scarica CV"
   },
   "projects": {
     "sectionTitle": "Progetti",

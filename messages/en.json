@@ -20,7 +20,7 @@
     "intro2": "Application security treated as a design constraint: OWASP Top 10, static analysis on every commit. Also .NET MAUI and native Android for mobile.",
     "ctaProjects": "View projects",
     "ctaContact": "Get in touch",
-    "downloadCv": "Download my CV"
+    "downloadCv": "Download CV"
   },
   "projects": {
     "sectionTitle": "Projects",

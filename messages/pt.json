@@ -20,7 +20,7 @@
     "intro2": "Segurança de aplicações tratada como uma restrição de projeto: OWASP Top 10, análise estática a cada commit. Também .NET MAUI e Android nativo para dispositivos móveis.",
     "ctaProjects": "Ver projetos",
     "ctaContact": "Entrar em contacto",
-    "downloadCv": "Baixar meu CV"
+    "downloadCv": "Baixar CV"
   },
   "projects": {
     "sectionTitle": "Projetos",

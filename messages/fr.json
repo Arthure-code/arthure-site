@@ -20,7 +20,7 @@
     "intro2": "Sécurité applicative traitée comme une contrainte de conception : OWASP Top 10, analyse statique à chaque commit. Également .NET MAUI et Android natif pour le mobile.",
     "ctaProjects": "Voir les projets",
     "ctaContact": "Me joindre",
-    "downloadCv": "Télécharger mon CV"
+    "downloadCv": "Télécharger CV"
   },
   "projects": {
     "sectionTitle": "Projets",
