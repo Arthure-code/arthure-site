@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl"
+import { Link } from "@/i18n/navigation"
 import Image from "next/image"
 import { contact, techLogo } from "@/data/site"
 import type { BadgeAffiche } from "@/lib/badges"
@@ -21,6 +22,7 @@ const FOOTER_TECHS = [
 
 export default function Footer({ badges }: { badges: BadgeAffiche[] }) {
   const t = useTranslations("footer")
+  const nav = useTranslations("nav")
   const year = new Date().getFullYear()
 
   return (
@@ -122,6 +124,10 @@ export default function Footer({ badges }: { badges: BadgeAffiche[] }) {
             <a className="link-secondary text-decoration-none" href={`mailto:${contact.email}`}>
               {contact.email}
             </a>
+            {" · "}
+            <Link className="link-secondary text-decoration-none" href="/accessibilite">
+              {nav("accessibility")}
+            </Link>
             {" · "}
             {t("builtWith")}
           </small>
