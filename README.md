@@ -96,12 +96,12 @@ déclarant `NEXT_PUBLIC_SITE_URL` chez l'hébergeur, sans toucher au code.
 | Dossier | Contenu |
 | --- | --- |
 | `content/projets/` | Un fichier JSON par projet |
-| `messages/` | Textes de l'interface, un fichier par langue |
-| `src/app/[locale]/` | Pages, préfixées par la langue |
-| `src/components/` | Composants d'affichage |
 | `content/certifications/` | Une fiche JSON par certification |
 | `content/badges/` | Une fiche JSON par badge d'apprentissage |
 | `content/documents.json` | Curriculum vitae proposé au téléchargement |
+| `messages/` | Textes de l'interface, un fichier par langue |
+| `src/app/[locale]/` | Pages, préfixées par la langue |
+| `src/components/` | Composants d'affichage |
 | `src/data/site.ts` | Coordonnées et compétences |
 | `src/i18n/` | Liste des langues et navigation traduite |
 | `src/lib/` | Lecture de `content/` à la construction |
