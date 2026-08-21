@@ -104,5 +104,5 @@ déclarant `NEXT_PUBLIC_SITE_URL` chez l'hébergeur, sans toucher au code.
 | `content/documents.json` | Curriculum vitae proposé au téléchargement |
 | `src/data/site.ts` | Coordonnées et compétences |
 | `src/i18n/` | Liste des langues et navigation traduite |
-| `src/lib/projects.ts` | Lecture des projets à la construction |
+| `src/lib/` | Lecture de `content/` à la construction |
 | `keystatic.config.ts` | Schéma du formulaire d'administration |
